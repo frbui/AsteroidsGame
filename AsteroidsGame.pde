@@ -39,6 +39,13 @@ public void draw()
 
 public void keyPressed()
 {
+  if(key == 'a'){
+    pacman.setX((int)(Math.random()*700));
+    pacman.setY((int)(Math.random()*700));
+    pacman.setDirectionX(0);
+    pacman.setDirectionY(0);
+    pacman.setPointDirection((int)(Math.random()*700));
+  }
   if(keyCode == UP){
     goUP = true;
   }
