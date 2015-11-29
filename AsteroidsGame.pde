@@ -4,10 +4,11 @@ boolean goDOWN = false;
 boolean goLEFT = false;
 boolean goRIGHT = false;
 Star[] bleh = new Star[400];
+Asteroid[] blah = new Asteroid[200];
 
 public void setup() 
 {
-  size(700,700);//your code here
+  size(700,700); //your code here
   bleh = new Star[100];
   for(int i = 0; i < bleh.length; i++){
     bleh[i] = new Star();
@@ -94,7 +95,12 @@ class Star
 }
 class Asteroid extends Floater
 {
-private int RotateSpeed;
+  private int RotateSpeed;
+  public Asteroid()
+  {
+    RotateSpeed = (int)(Math.random()*50)-25;
+  }
+
 }
 class SpaceShip extends Floater  
 {      
