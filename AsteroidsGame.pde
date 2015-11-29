@@ -113,14 +113,6 @@ private int rotationSpeed;
     yCorners[4] = 8;
     xCorners[5] = -5;
     yCorners[5] = 0;
-}
-  public void move()
-  {
-  rotate(rotSpeed);
-  }
-  public void show()
-  {
-  fill(51,0,0);
   }
 }
 class SpaceShip extends Floater  
