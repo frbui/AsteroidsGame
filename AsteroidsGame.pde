@@ -100,6 +100,10 @@ class Asteroid extends Floater
   {
     RotateSpeed = (int)(Math.random()*50)-25;
   }
+  public void move()
+  {
+    
+  }
 
 }
 class SpaceShip extends Floater  
