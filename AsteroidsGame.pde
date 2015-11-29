@@ -18,7 +18,6 @@ public void draw()
   background(0);
   pacman.show();//your code here
   pacman.move();
-  asteroid.show();
   if(goUP == true){
     pacman.accelerate(.1);
   }
@@ -113,6 +112,9 @@ private int rotationSpeed;
     yCorners[4] = 8;
     xCorners[5] = -5;
     yCorners[5] = 0;
+}
+  public void move()
+  {
   }
 }
 class SpaceShip extends Floater  
@@ -231,4 +233,3 @@ abstract class Floater //Do NOT modify the Floater class! Make changes in the Sp
     endShape(CLOSE);  
   }   
 } 
-
