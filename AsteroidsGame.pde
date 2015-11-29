@@ -92,6 +92,10 @@ class Star
     ellipse(myX, myY, 3, 3);
   }
 }
+class Asteroid extends Floater
+{
+private int RotateSpeed;
+}
 class SpaceShip extends Floater  
 {      
   public SpaceShip(){
