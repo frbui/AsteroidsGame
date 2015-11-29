@@ -115,6 +115,7 @@ private int rotationSpeed;
 }
   public void move()
   {
+  rotate(rotSpeed);
   }
 }
 class SpaceShip extends Floater  
