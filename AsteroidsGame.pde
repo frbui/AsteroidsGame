@@ -13,6 +13,10 @@ public void setup()
   for(int i = 0; i < bleh.length; i++){
     bleh[i] = new Star();
   }
+  blah = new Asteroid[100];
+  for(int a = 0; a < blah.length; a++){
+    blah[a] = new Asteroid();
+  }
 }
 public void draw() 
 {
@@ -36,7 +40,12 @@ public void draw()
     stroke(1);
     bleh[i].show();
   }
+  for (int a=0; a< blah.length; a++)
+  {
+    blah[a].show();
+  }
 }
+
 
 public void keyPressed()
 {
@@ -119,21 +128,40 @@ class Asteroid extends Floater
       rotSpeed = ((int)(Math.random()*2)+2)*(-1); 
     }
   
-  corners = 6;
-  xCorners = new int[corners];
-  yCorners = new int[corners];
-  xCorners[0] = -11;
-  yCorners[0] = -8;
-  xCorners[1] = 7;
-  yCorners[1] = -8;
-  xCorners[2] = 13;
-  yCorners[2] = 0;
-  xCorners[3] = 6;
-  yCorners[3] = 10;
-  xCorners[4] = -11;
-  yCorners[4] = 8;
-  xCorners[5] = -5;
-  yCorners[5] = 0;
+    corners = 12;
+    xCorners = new int[corners];
+    yCorners = new int[corners];
+    xCorners[0] = 0;
+    yCorners[0] = 10;
+    xCorners[1] = 6;
+    yCorners[1] = 8;
+    xCorners[2] = 10;
+    yCorners[2] = 5;
+    xCorners[3] = 12;
+    yCorners[3] = 0;
+    xCorners[4] = 12;
+    yCorners[4] = -7;
+    xCorners[5] = 6;
+    yCorners[5] = 0;
+    xCorners[6] = 0;
+    yCorners[6] = -7;
+    xCorners[7] = -6;
+    yCorners[7] = 0;
+    xCorners[8] = -12;
+    yCorners[8] = 7;
+    xCorners[9] = -12;
+    yCorners[9] = 0;
+    xCorners[10] = -10;
+    yCorners[10] = 8;
+    xCorners[11] = -6;
+    yCorners[11] = 8;
+
+    myColor = color(0,0,255);
+    myCenterX = (int)(Math.random()*500);
+    myCenterY = (int)(Math.random()*500);
+    myDirectionX = 0;
+    myDirectionY = 0;
+    myPointDirection = 0;
   }
 
 }
@@ -159,7 +187,7 @@ class SpaceShip extends Floater
     yCorners[6] = -12;
     xCorners[7] = 10;
     yCorners[7] = -9;
-    myColor = color(239,250,0);
+    myColor = color((int)(Math.random()*255),(int)(Math.random()*255),(int)(Math.random()*255));
     myCenterX = 250;
     myCenterY = 250;
     myDirectionX = 0;
