@@ -4,16 +4,14 @@ boolean goDOWN = false;
 boolean goLEFT = false;
 boolean goRIGHT = false;
 Star[] bleh = new Star[400];
-Asteroid[] blah = new Asteroid[200];
+Asteroid[] blah = new Asteroid[13];
 
 public void setup() 
 {
-  size(700,700); //your code here
-  bleh = new Star[100];
+  size(700,700); 
   for(int i = 0; i < bleh.length; i++){
     bleh[i] = new Star();
   }
-  blah = new Asteroid[100];
   for(int a = 0; a < blah.length; a++){
     blah[a] = new Asteroid();
   }
@@ -43,6 +41,7 @@ public void draw()
   for (int a=0; a< blah.length; a++)
   {
     blah[a].show();
+    blah[a].move();
   }
 }
 
@@ -115,18 +114,9 @@ class Asteroid extends Floater
   public double getDirectionY(){return (int)myDirectionY;}   
   public void setPointDirection(int degrees){myPointDirection = degrees;}   
   public double getPointDirection(){return (int)myPointDirection;}
-  public int rotSpeed;
 
   public Asteroid()
   {
-    if(Math.random() > .5)
-    {
-      rotSpeed = (int)(Math.random()*2)+2;
-    }
-    else
-    {
-      rotSpeed = ((int)(Math.random()*2)+2)*(-1); 
-    }
   
     corners = 12;
     xCorners = new int[corners];
@@ -148,20 +138,29 @@ class Asteroid extends Floater
     xCorners[7] = -6;
     yCorners[7] = 0;
     xCorners[8] = -12;
-    yCorners[8] = 7;
+    yCorners[8] = -7;
     xCorners[9] = -12;
     yCorners[9] = 0;
     xCorners[10] = -10;
-    yCorners[10] = 8;
+    yCorners[10] = 5;
     xCorners[11] = -6;
     yCorners[11] = 8;
 
     myColor = color(0,0,255);
-    myCenterX = (int)(Math.random()*500);
-    myCenterY = (int)(Math.random()*500);
-    myDirectionX = 0;
-    myDirectionY = 0;
+    myCenterX = (int)(Math.random()*700);
+    myCenterY = (int)(Math.random()*700);
+    myDirectionX = ((int)(Math.random()*5)-2);
+    myDirectionY = ((int)(Math.random()*5)-2);
     myPointDirection = 0;
+  }
+  public void move()
+  {
+    super.move();
+    if(myCenterX > -1)
+    {
+      myCenterX=myCenterX+2;
+      myCenterY++;
+    }
   }
 
 }
@@ -187,7 +186,7 @@ class SpaceShip extends Floater
     yCorners[6] = -12;
     xCorners[7] = 10;
     yCorners[7] = -9;
-    myColor = color((int)(Math.random()*255),(int)(Math.random()*255),(int)(Math.random()*255));
+    myColor = color(255,255,0);
     myCenterX = 250;
     myCenterY = 250;
     myDirectionX = 0;
