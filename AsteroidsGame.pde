@@ -4,19 +4,22 @@ boolean goDOWN = false;
 boolean goLEFT = false;
 boolean goRIGHT = false;
 Star[] bleh;
-Asteroid[] blah;
-
+ArrayList <Asteroid> asteroidList;
+int blah;
 public void setup() //Draws things out
 {
 bleh = new Star[400];
-blah = new Asteroid[13];
+blah = 13;
   size(700,700); 
   for(int i = 0; i < bleh.length; i++){
     bleh[i] = new Star();
   }
-  for(int a = 0; a < blah.length; a++){
-    blah[a] = new Asteroid();
-  }
+  asteroidList = new ArrayList <Asteroid>();
+
+ for (int i=0; i< blah; i++)
+ {
+  asteroidList.add(new Asteroid());
+ }
 }
 public void draw() //Controls and Draw things out
 {
@@ -40,10 +43,10 @@ public void draw() //Controls and Draw things out
     stroke(1);
     bleh[i].show();
   }
-  for (int a=0; a< blah.length; a++)
+  for (int a=0; a< asteroidList.size; a++)
   {
-    blah[a].show();
-    blah[a].move();
+    asteroidList.get(a).show();
+    asteroidList.get(a).move();
   }
 }
 
