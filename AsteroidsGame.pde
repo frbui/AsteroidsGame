@@ -48,6 +48,11 @@ public void draw() //Controls and Draw things out
     asteroidList.get(a).show();
     asteroidList.get(a).move();
   }
+  for(int i = 0; i < asteroidList.size(); i++)
+  {
+    if( dist(asteroidList.get(i).getX(), asteroidList.get(i).getY(), pacman.getX(),pacman.getY())<20 )
+      asteroidList.remove(i);
+  }
 }
 
 
