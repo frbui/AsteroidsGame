@@ -3,11 +3,12 @@ boolean goUP = false;
 boolean goDOWN = false;
 boolean goLEFT = false;
 boolean goRIGHT = false;
-Star[] bleh = new Star[400];
+Star[] bleh;
 Asteroid[] blah = new Asteroid[13];
 
 public void setup() 
 {
+bleh = new Star[400];
   size(700,700); 
   for(int i = 0; i < bleh.length; i++){
     bleh[i] = new Star();
