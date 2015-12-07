@@ -43,7 +43,7 @@ public void draw() //Controls and Draw things out
     stroke(1);
     bleh[i].show();
   }
-  for (int a=0; a< asteroidList.size; a++)
+  for (int a=0; a< asteroidList.size() -1; a++)
   {
     asteroidList.get(a).show();
     asteroidList.get(a).move();
