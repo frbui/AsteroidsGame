@@ -4,11 +4,12 @@ boolean goDOWN = false;
 boolean goLEFT = false;
 boolean goRIGHT = false;
 Star[] bleh;
-Asteroid[] blah = new Asteroid[13];
+Asteroid[] blah;
 
-public void setup() 
+public void setup() //Draws things out
 {
 bleh = new Star[400];
+blah = new Asteroid[13];
   size(700,700); 
   for(int i = 0; i < bleh.length; i++){
     bleh[i] = new Star();
@@ -17,10 +18,10 @@ bleh = new Star[400];
     blah[a] = new Asteroid();
   }
 }
-public void draw() 
+public void draw() //Controls and Draw things out
 {
   background(0);
-  pacman.show();//your code here
+  pacman.show();
   pacman.move();
   if(goUP == true){
     pacman.accelerate(.1);
@@ -47,7 +48,7 @@ public void draw()
 }
 
 
-public void keyPressed()
+public void keyPressed() //ensured that the things pressed works
 {
   if(key == 'a'){
     pacman.setX((int)(Math.random()*700));
@@ -87,7 +88,7 @@ public void keyReleased(){
     goRIGHT = false;
   }
 }
-class Star
+class Star //what a star looks like or where it goes
 {
   private int myX, myY;
   public Star()
