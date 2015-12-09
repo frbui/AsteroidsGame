@@ -5,7 +5,8 @@ boolean goLEFT = false;
 boolean goRIGHT = false;
 Star[] bleh;
 ArrayList <Asteroid> asteroidList;
-int blah;
+ArrayList <Bullet> bulletThing;
+int blah, potato;
 double dRadians;
 
 public void setup() //Draws things out
@@ -13,15 +14,24 @@ public void setup() //Draws things out
 bleh = new Star[400];
 blah = 13;
   size(700,700); 
-  for(int i = 0; i < bleh.length; i++){
+  for(int i = 0; i < bleh.length; i++)
+  {
     bleh[i] = new Star();
   }
   asteroidList = new ArrayList <Asteroid>();
-
- for (int i=0; i< blah; i++)
- {
-  asteroidList.add(new Asteroid());
- }
+  for (int i=0; i< blah; i++)
+  {
+    asteroidList.add(new Asteroid());
+  }
+  
+  bulletThing = new ArrayList <Bullet>();
+}
+public void mousePressed()
+{
+  if (mousePressed == true)
+   {
+    bulletThing.add(new Bullet(pacman));
+   }
 }
 public void draw() //Controls and Draw things out
 {
@@ -55,8 +65,12 @@ public void draw() //Controls and Draw things out
     if( dist(asteroidList.get(i).getX(), asteroidList.get(i).getY(), pacman.getX(),pacman.getY())<20 )
       asteroidList.remove(i);
   }
+   for(int z=0; z<bulletThing.size(); z++)
+  {
+    bulletThing.get(z).show();
+    bulletThing.get(z).move();
+  }
 }
-
 
 public void keyPressed() //ensured that the things pressed works
 {
@@ -220,14 +234,24 @@ class SpaceShip extends Floater
 class Bullet extends Floater //the bullet or dot thing
 
 {
-  public Bullet(){
-    myCenterX = 250;
-    myCenterY = 250;
-    myPointDirection = 0;
+  public Bullet(SpaceShip pacman){
+    myCenterX = pacman.getX();
+    myCenterY = pacman.getY();
+    myPointDirection = pacman.getPointDirection();
     double dRadians = myPointDirection*(Math.PI/180);
-    myDirectionX = 5 * Math.cos(dRadians) + myDirectionX;
-    myDirectionY = 5 * Math.sin(dRadians) + myDirectionY;
+    myDirectionX = 5*Math.cos(dRadians)+pacman.getDirectionX();
+    myDirectionY = 5*Math.sin(dRadians)+pacman.getDirectionY();
+  }
+  
+  public void show(){
+    fill(255,255,0);
+    noStroke();
+    ellipse((float)myCenterX, (float)myCenterY, 20,10);
+  }
 
+  public void move(){
+    myCenterX += myDirectionX;
+    myCenterY += myDirectionY;
   }
   public void setX(int x){myCenterX = x;}  
   public int getX(){return (int)myCenterX;}   
