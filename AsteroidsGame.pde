@@ -12,7 +12,7 @@ double dRadians;
 public void setup() //Draws things out
 {
 bleh = new Star[400];
-blah = 13;
+blah = 15;
   size(700,700); 
   for(int i = 0; i < bleh.length; i++)
   {
@@ -25,13 +25,6 @@ blah = 13;
   }
   
   bulletThing = new ArrayList <Bullet>();
-}
-public void mousePressed()
-{
-  if (mousePressed == true)
-   {
-    bulletThing.add(new Bullet(pacman));
-   }
 }
 public void draw() //Controls and Draw things out
 {
@@ -59,6 +52,12 @@ public void draw() //Controls and Draw things out
   {
     asteroidList.get(a).show();
     asteroidList.get(a).move();
+        for(int i = 0; i <bulletThing.size(); i++)
+        {    if (dist((float)asteroidList.get(a).getX(),(float)asteroidList.get(a).getY(), (float)bulletThing.get(i).getX(), (float)bulletThing.get(i).getY())<20)
+            {
+              asteroidList.remove(a);
+            }
+        }
   }
   for(int i = 0; i < asteroidList.size(); i++)
   {
@@ -70,6 +69,14 @@ public void draw() //Controls and Draw things out
     bulletThing.get(z).show();
     bulletThing.get(z).move();
   }
+  if (asteroidList.size()< blah)
+       {
+         for (int e=asteroidList.size() -1 ; e<blah; e++)
+         {
+          asteroidList.add(new Asteroid());
+         }
+       }
+
 }
 
 public void keyPressed() //ensured that the things pressed works
@@ -80,6 +87,10 @@ public void keyPressed() //ensured that the things pressed works
     pacman.setDirectionX(0);
     pacman.setDirectionY(0);
     pacman.setPointDirection((int)(Math.random()*700));
+  }
+  if (key == 'z')
+  {
+    bulletThing.add(new Bullet(pacman));
   }
   if(keyCode == UP){
     goUP = true;
