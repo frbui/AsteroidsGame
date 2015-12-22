@@ -9,7 +9,7 @@ ArrayList <Bullet> bulletThing;
 int blah, potato;
 double dRadians;
 
-public void setup() //Draws things out
+public void setup() //Draws things out & create arrays
 {
 bleh = new Star[400];
 blah = 15;
@@ -79,7 +79,7 @@ public void draw() //Controls and Draw things out
 
 }
 
-public void keyPressed() //ensured that the things pressed works
+public void keyPressed() //controls
 {
   if(key == 'a'){
     pacman.setX((int)(Math.random()*700));
@@ -105,7 +105,7 @@ public void keyPressed() //ensured that the things pressed works
     goRIGHT = true;
   }
 }
-public void keyReleased(){
+public void keyReleased(){ //checks when the keys are released
   if(keyCode == UP )
   {
     goUP = false;
@@ -139,7 +139,7 @@ class Star //what a star looks like or where it goes
   }
 }
 
-class Asteroid extends Floater
+class Asteroid extends Floater //the asteroid
 {
   public void setX(int x){myCenterX = x;}  
   public int getX(){return (int)myCenterX;}   
@@ -201,7 +201,7 @@ class Asteroid extends Floater
   }
 
 }
-class SpaceShip extends Floater  
+class SpaceShip extends Floater  //the Spaceship
 {      
   public SpaceShip(){
     corners = 8;
